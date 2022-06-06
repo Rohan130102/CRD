@@ -5,6 +5,9 @@ import java.util.Set;
 public class User {
 	private int id;
 	private String name;
+	private String password;
+	private String email;
+	private Set<Task> tasks;
 	
 	public int getId() {
 		return id;
@@ -36,7 +39,4 @@ public class User {
 	public void setTasks(Set<Task> tasks) {
 		this.tasks = tasks;
 	}
-	private String password;
-	private String email;
-	private Set<Task> tasks;
 }
