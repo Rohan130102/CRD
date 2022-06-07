@@ -1,6 +1,8 @@
 package com.dailywork.form;
 
-public class TaskForm {
+import org.apache.struts.action.ActionForm;
+
+public class TaskForm extends ActionForm {
 
 	private String name;
 	private String description;
