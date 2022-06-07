@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dailywork.dao.UserDAO;
 import com.dailywork.dao.impl.UserDAOImpl;
+import com.dailywork.pojo.Task;
 import com.dailywork.pojo.User;
 import com.dailywork.service.UserService;
 
@@ -39,6 +40,12 @@ public class UserServiceImpl implements UserService {
 	public User login(String email, String password) {
 		userDAO = new UserDAOImpl();
 		return userDAO.login(email,password);
+	}
+
+	@Override
+	public String save(Task t) {
+		userDAO = new UserDAOImpl();
+		return userDAO.save(t);
 	}
 
 }

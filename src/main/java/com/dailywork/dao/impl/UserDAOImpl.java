@@ -13,6 +13,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.dailywork.dao.UserDAO;
+import com.dailywork.pojo.Task;
 import com.dailywork.pojo.User;
 import com.dailywork.utils.HibernateUtils;
 
@@ -80,7 +81,8 @@ public class UserDAOImpl implements UserDAO {
 			status = "failure";
 			ex.printStackTrace();
 		} finally {
-			sessionFactory.close();
+			if (session.isOpen() || null != session)
+				session.close();
 		}
 		return status;
 	}
@@ -126,6 +128,28 @@ public class UserDAOImpl implements UserDAO {
 		} finally {
 		}
 		return (user != null && (user.getPassword().equals(password))) ? user : null;
+	}
+
+	@Override
+	public String save(Task t) {
+		String status = "";
+		Transaction tx = null;
+		try {
+			sessionFactory = HibernateUtils.getSessionFactory();
+			session = sessionFactory.openSession();
+			tx = session.beginTransaction();
+			session.save(t);
+			tx.commit();
+			status = "success";
+		} catch (Exception ex) {
+			System.out.println("failure");
+			tx.rollback();
+			status = "failure";
+			ex.printStackTrace();
+		} finally {
+			sessionFactory.close();
+		}
+		return status;
 	}
 
 }

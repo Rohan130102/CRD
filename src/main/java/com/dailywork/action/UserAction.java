@@ -1,5 +1,11 @@
 package com.dailywork.action;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +17,7 @@ import org.apache.struts.actions.DispatchAction;
 
 import com.dailywork.form.LoginForm;
 import com.dailywork.form.SignupForm;
+import com.dailywork.pojo.Task;
 import com.dailywork.pojo.User;
 import com.dailywork.service.UserService;
 import com.dailywork.service.impl.UserServiceImpl;
@@ -33,11 +40,16 @@ public class UserAction extends DispatchAction {
 
 	public ActionForward create(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		System.out.println("Create Hit......");
 		String status = "";
 		userService = new UserServiceImpl();
 		User user = new User();
 		BeanUtils.copyProperties(user, (SignupForm) form);
-		status = userService.save(user);
+		List<Task> tasks = new ArrayList<Task>();
+		Task t = new Task("Name","Description",new Date(), user);
+		user.setTasks(tasks);
+		userService.save(user);
+		status = userService.save(t);
 		return mapping.findForward(status);
 	}
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,25 +29,25 @@
 			<h6 class="p-0 m-0">Already have an account?</h6>
 			<a href="login.jsp" class="mx-3">Login</a>
 		</div>
-		<form class="mt-4 form" method="POST" onsubmit="return validate()" action="login.jsp">
+		<html:form styleClass="mt-4 form" method="POST" onsubmit="return validate()" action="/signup?actionType=create">
 			<div class="mb-2">
 				<label for="name" class="form-label">Name</label>
-				<input type="text" class="form-control" id="name" required>
+				<input type="text" class="form-control" id="name"  name="name"  required>
 			</div>
 			<div class="mb-2">
 				<label for="email" class="form-label">Email</label>
-				<input type="email" class="form-control" id="email" required>
+				<input type="email" class="form-control" id="email" name="email" required>
 			</div>
 			<div class="mb-2">
 				<label for="password" class="form-label">Password</label>
-				<input type="password" class="form-control" id="password" required>
+				<input type="password" class="form-control" id="password" name="password" required>
 			</div>
 			<div class="mb-2">
 				<label for="rePassword" class="form-label">Re-Enter Password</label>
 				<input type="password" class="form-control" id="rePassword" required>
 			</div>
 			<button type="submit" class="mt-4 btn btn-primary w-100">Sign Up</button>
-		</form>
+		</html:form>
 	</div>
 	
 <script type="text/javascript">

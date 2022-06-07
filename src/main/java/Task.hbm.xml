@@ -4,15 +4,15 @@
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.dailywork.pojo.Task" table="TASK">
-		<id name = "id">
-			<generator class="increment"></generator>
+	<class name="com.dailywork.pojo.Task" table="task">
+		<id name = "id" >
+			<generator class="increment" ></generator>
 		</id>
 		<property name="name" />
 		<property name="description"  />
 		<property name="createdOn" />
-		<many-to-one name="user" class="User">
-			<column name="user_id" not-null="true"></column>
+		<many-to-one name="user" class="com.dailywork.pojo.User" >
+			<column name="user_id" not-null="true" ></column>
 		</many-to-one>
 	</class>
 </hibernate-mapping>

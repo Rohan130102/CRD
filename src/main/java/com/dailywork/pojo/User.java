@@ -1,5 +1,7 @@
 package com.dailywork.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class User {
@@ -7,7 +9,7 @@ public class User {
 	private String name;
 	private String password;
 	private String email;
-	private Set<Task> tasks;
+	private List<Task> tasks = new ArrayList<Task>();
 
 	public int getId() {
 		return id;
@@ -41,11 +43,11 @@ public class User {
 		this.email = email;
 	}
 
-	public Set<Task> getTasks() {
+	public List<Task> getTasks() {
 		return tasks;
 	}
 
-	public void setTasks(Set<Task> tasks) {
+	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
 	}
 }

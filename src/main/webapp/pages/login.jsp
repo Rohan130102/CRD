@@ -26,9 +26,9 @@
 		<h5>Login</h5>
 		<div class="my-4 new-user-div d-flex w-100 align-items-center">
 			<h6 class="p-0 m-0">New user?</h6>
-			<a href="signup.jsp" class="mx-3">Sign Up</a>
+			<a href="pages/signup.jsp" class="mx-3">Sign Up</a>
 		</div>
-		<form class="mt-4 form" method="POST" action="#">
+		<form class="mt-4 form" method="POST" action="/login?actionType=login">
 			<div class="mb-2">
 				<label for="exampleInputEmail1" class="form-label">Email</label>
 				<input type="email" class="form-control" id="exampleInputEmail1"
