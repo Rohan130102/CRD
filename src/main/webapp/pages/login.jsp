@@ -9,7 +9,7 @@
 <style type="text/css">
 
 	body {
-		background: lightblue;
+		background: #57b2ea;
 	}
 
 	body .div {
