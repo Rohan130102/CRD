@@ -1,6 +1,8 @@
 package com.dailywork.form;
 
-public class LoginForm {
+import org.apache.struts.action.ActionForm;
+
+public class LoginForm extends ActionForm {
 	
 	private String email;
 	private String password;

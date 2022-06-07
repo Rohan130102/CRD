@@ -1,6 +1,8 @@
 package com.dailywork.form;
 
-public class SignupForm {
+import org.apache.struts.action.ActionForm;
+
+public class SignupForm extends ActionForm {
 	
 	private String name;
 	private String email;
