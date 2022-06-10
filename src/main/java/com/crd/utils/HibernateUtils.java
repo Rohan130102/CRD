@@ -1,6 +1,6 @@
-package com.dailywork.utils;
+package com.crd.utils;
 
-import org.hibernate.SessionFactory;
+import org.hibernate.SessionFactory; 
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtils {

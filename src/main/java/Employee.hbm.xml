@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.crd.pojo.Employee" table="EMPLOYEE">
+		<id name="empId">
+			<generator class="increment" />
+		</id>
+		<property name="empName" length="50" />
+		<property name="empSalary" length="100" />
+		<property name="empAddress" length="4000" />
+		<property name="empCode" unique="true" length="4" />
+		<one-to-one name="companyId" class="com.crd.pojo.Company"
+			cascade="all" />
+	</class>
+</hibernate-mapping>
